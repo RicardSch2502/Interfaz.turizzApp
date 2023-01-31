@@ -41,6 +41,7 @@ const FormAddCategoria = () => {
               class="form-control"
               aria-describedby="emailHelp"
               name="nombre_categoria"
+              autoComplete="off"
               onChange={handle}
             />
           </div>
@@ -53,6 +54,7 @@ const FormAddCategoria = () => {
               class="form-control"
               aria-describedby="emailHelp"
               name="subtitulo"
+              autoComplete="off"
               onChange={handle}
             />
           </div>
@@ -65,6 +67,7 @@ const FormAddCategoria = () => {
               class="form-control"
               aria-describedby="emailHelp"
               name="imagen"
+              autoComplete="off"
               onChange={handle}
             />
           </div>

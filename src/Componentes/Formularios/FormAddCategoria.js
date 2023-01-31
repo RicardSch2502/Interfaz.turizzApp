@@ -67,7 +67,7 @@ const FormAddCategoria = () => {
               class="form-control"
               aria-describedby="emailHelp"
               name="imagen"
-              autoComplete="off"
+              autoComplete="off" //autocompletado
               onChange={handle}
             />
           </div>

@@ -10,6 +10,8 @@ import FormEditTienda from "../Componentes/Formularios/FormEditTienda";
 import TableCategoria from "../Componentes/TableCategoria";
 import FormEditCategoria from "../Componentes/Formularios/FormEditCategoria";
 import FormAddCategoria from "../Componentes/Formularios/FormAddCategoria";
+import Login from "../Componentes/Formularios/Login";
+import Formulariologin from "../Componentes/Formularios/Formulariologin";
 
 export default function Rutas() {
   const [categoria, setCategoria] = useState();
@@ -32,6 +34,16 @@ export default function Rutas() {
             setIdCategoria={setIdCategoria}
           />
         }
+      />
+      <Route
+        path="/Formulariologin"
+        exact
+        element={<Formulariologin/>}
+      />
+      <Route
+        path="/logins"
+        exact
+        element={<Login/>}
       />
       <Route
         path="/registrar/tienda/:idCategoria"

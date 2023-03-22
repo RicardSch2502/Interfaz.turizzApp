@@ -16,7 +16,7 @@ function Header() {
           Bienvenidos a TurizzApp
         </h1>
         <div className="d-flex justify-content-center">
-          <Boton to="/menu" icon="bx-right-arrow-circle" />
+          <Boton to="/logins" icon="bx-right-arrow-circle" />
         </div>
       </div>
     </header>

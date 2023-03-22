@@ -16,13 +16,39 @@ export default function Secciones({ setCategoria }) {
   useEffect(() => {
     obtenerCategorias();
   }, []);
+  console.log(dataCategoria);
 
   return (
     <>
       <div className=" flex-row justify-content-center align-items-center animate__animated animate__bounceInUp">
         <div className="d-flex">
           <Boton to="/" icon="bx-left-arrow-circle" />
+          <div className="dropdown justify-content-end">
+            <button
+              className="btn btn-secondary dropdown-toggle"
+              type="button"
+              style={{ width: "500px" }}
+              data-bs-toggle="dropdown"
+            >
+              Filtrar categorias
+            </button>
+            <ul
+              className="dropdown-menu text-center"
+              style={{ width: "500px" }}
+            >
+              {dataCategoria.map((el) => {
+                return (
+                  <li>
+                    <Link to={`../Tiendas/${el._id}`}>
+                      {el.nombre_categoria}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
+
         <h1 className="Colortext text-center  animate__animated animate__bounceInUp">
           TurizzApp
         </h1>

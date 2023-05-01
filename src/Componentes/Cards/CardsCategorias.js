@@ -11,7 +11,7 @@ const CardsCategorias = (props) => {
     changeColor = "alert-info";
   }
   const { idCategoria } = useParams();
-   const eliminar = async () => {
+  const eliminar = async () => {
     let desicion = window.confirm(
       "¿Estas seguro de que quieres eliminar este documento?"
     );
@@ -19,10 +19,10 @@ const CardsCategorias = (props) => {
     if (desicion) {
       await axios.delete(`/categoria/eliminar/${idCategoria}`);
     }
-  }; 
+  };
 
   return (
-    <div className="Efectcursor col m-2 flex-wrap min-width-300 max-width-400">
+    <div className="Efectcursor col m-2 flex-wrap min-width max-width-400 shadow">
       <div
         className={`card h-100 ${changeColor} animate__animated animate__bounceInUp`}
       >
@@ -42,8 +42,8 @@ const CardsCategorias = (props) => {
             <img
               src={props.img}
               alt="img"
-              width="300px"
-              className="img-thumbnail mx-auto d-block"
+              height="300px"
+              className="img-thumbnail mx-auto d-block w-100"
             />
           </div>
         </Link>

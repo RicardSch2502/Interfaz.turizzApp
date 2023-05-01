@@ -5,12 +5,14 @@ import municipio from "../../assets/Municipios.json";
 import axios from "../../Caxios/Axios";
 import Boton from "../Boton";
 import Modalcrear from "../Modalcrear";
+import Axios from "../../Caxios/Axios";
 
 const FormAddTienda = () => {
   const [estado, setEstados] = useState(0);
   const [idC, setIdC] = useState(null);
   const [municipios, setMunicipios] = useState("Aguascalientes");
   const [show, setShow] = useState(false);
+  const [img, setImg] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -34,10 +36,21 @@ const FormAddTienda = () => {
       [e.target.name]: e.target.value,
     });
   };
-
+  const imgsave = (e) => {
+    setImg(e.target.files[0]);
+    console.log(e);
+  };
   const enviarDatos = async () => {
+    const datos = new FormData();
+    datos.append("datos", JSON.stringify(data));
+    datos.append("img", img);
+
     axios
-      .post("/tienda/insertar", data)
+      .post("/tienda/insertar", datos, {
+        headers: {
+          "Content-Type": "Multipart",
+        },
+      })
       .then((res) => {
         setIdC(res);
       })
@@ -134,9 +147,9 @@ const FormAddTienda = () => {
           <p>Subir imagen</p>
           <input
             required={true}
-            onChange={handle}
+            onChange={imgsave}
             className="w-100"
-            type="text"
+            type="file"
             name="imagen"
           />
         </label>

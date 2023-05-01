@@ -1,4 +1,4 @@
-.App-box {
+/*.App-box {
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -16,11 +16,13 @@
 }
 
 .App-header {
-  background: rgb(195, 195, 255);
+  background: rgb(, 255, 255);
   /*  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; */
+  justify-content: center; 
+  
+  
   color: rgb(0, 0, 0);
 }
 
@@ -71,4 +73,19 @@
 
 .Antext {
   width: 35%;
+}
+*/
+
+.Main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+.image {
+  object-fit: contain;
+}
+
+.min-width {
+  min-width: 300px;
 }

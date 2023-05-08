@@ -1,7 +1,7 @@
 import Axios from "../Caxios/Axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../img/logo.png";
+import logo from "../img/logo.jpg";
 import Secciones from "../Componentes/Secciones";
 
 function Home() {
@@ -28,6 +28,7 @@ function Home() {
         <div
           id="carouselExampleAutoplaying"
           className="carousel slide w-75 h-25 border animate__animated animate__bounceInUp"
+          data-bs-ride="carousel"
         >
           <div className="carousel-inner">
             <div className="carousel-item active">

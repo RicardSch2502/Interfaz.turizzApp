@@ -1,6 +1,11 @@
 import Axios from "../Caxios/Axios";
 import React, { useEffect, useState } from "react";
+import { url } from "../Caxios/Axios";
 import { useParams } from "react-router-dom";
+
+import { TileLayer } from "react-leaflet/TileLayer";
+import { MapContainer } from "react-leaflet/MapContainer";
+import { Marker } from "react-leaflet/Marker";
 
 const Tienda = () => {
   const [dataTienda, setDataTienda] = useState();
@@ -8,7 +13,7 @@ const Tienda = () => {
 
   useEffect(() => {
     obtenerTienda();
-  });
+  }, []);
 
   const obtenerTienda = async () => {
     const tienda = await Axios.get(`/tienda/consultar/${idTienda}`);
@@ -16,7 +21,7 @@ const Tienda = () => {
     setDataTienda(tienda.data);
   };
   return (
-    <>
+    <div>
       {" "}
       {dataTienda && (
         <div>
@@ -50,12 +55,27 @@ const Tienda = () => {
               </p>
             </div>
             <div>
-              <img src={dataTienda.imagen} alt="img" />
+              <img src={`${url}/${dataTienda.imagen}`} alt="img" />
             </div>
           </div>
         </div>
       )}
-    </>
+      <div
+        className="d-flex border position-relative"
+        style={{ width: "200px", height: "200px" }}
+      >
+        <Map />
+      </div>
+    </div>
+  );
+};
+
+const Map = () => {
+  return (
+    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <Marker position={[51.505, -0.09]}></Marker>
+    </MapContainer>
   );
 };
 

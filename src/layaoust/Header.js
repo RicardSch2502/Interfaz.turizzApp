@@ -22,6 +22,7 @@ function Header({ setCategoria, setIdCategoria }) {
   useEffect(() => {
     obtenerCategorias();
   }, []);
+
   return (
     <div className="Main">
       <div className="d-flex justify-content-center align-items-center sticky-top ">
@@ -30,16 +31,10 @@ function Header({ setCategoria, setIdCategoria }) {
           style={{ height: "7vh" }}
         >
           <div className="d-flex justify-content-start w-25">
-            <Boton
-              to={
-                location.match("Tiendas")
-                  ? "/menu"
-                  : location.match("tienda")
-                  ? "/menu"
-                  : "/"
-              }
-              icon="bx-left-arrow-circle"
-            />
+            <Boton to={-1} icon="bx-left-arrow-circle" />
+            <Boton to={1} icon="bx-right-arrow-circle" />
+            <Boton to={"/menu"} icon="bx-home" />
+            <Boton to={"/menu"} icon="bx-home-add-fill" />
           </div>
           <div className="flex-fill d-flex justify-content-evenly">
             <div className="dropdown justify-content-end">

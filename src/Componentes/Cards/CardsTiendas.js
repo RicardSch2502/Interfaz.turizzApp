@@ -9,7 +9,7 @@ const Tiendas = (props) => {
     borderRadius: "20px",
   };
   return (
-    <div className="Efectcursor">
+    <div className="" style={{ width: "500px" }}>
       <Link
         to={`/edit/tienda/${props.id}`}
         type="button"
@@ -19,7 +19,7 @@ const Tiendas = (props) => {
           className="card  animate__animated animate__bounceInUp p-2 m-2 min-width-300 max-width-400"
           style={background}
         >
-          <img src={props.img} style={styleImg} />
+          <img src={props.img} style={styleImg} className="w-100" />
           <div className=" card-body">
             <h5 className="card-title">{props.title}</h5>
             <p className="Cardscolor card-text">{props.children}</p>

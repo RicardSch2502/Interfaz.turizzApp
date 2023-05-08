@@ -89,3 +89,6 @@
 .min-width {
   min-width: 300px;
 }
+.max-w-min {
+  max-width: min-content;
+}

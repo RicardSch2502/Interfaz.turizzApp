@@ -7,7 +7,7 @@ import Boton from "../Boton";
 
 const FormEditTienda = ({ idCategoria }) => {
   const [estado, setEstados] = useState(0);
-  /*   const [municipios, setMunicipios] = useState("Aguascalientes"); */
+  const [img, setImg] = useState("Aguascalientes");
   const [dataTienda, setDataTienda] = useState([]);
 
   const [data, setData] = useState();
@@ -34,8 +34,11 @@ const FormEditTienda = ({ idCategoria }) => {
   };
 
   const actTienda = async () => {
+    const dat = new FormData();
+    dat.append("datos", JSON.stringify(data));
+    dat.append("img", img);
     await axios
-      .put(`/tienda/actualizar/${idTienda}`, data)
+      .put(`/tienda/actualizar/${idTienda}`, dat)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     navigate(`/Tiendas/${localStorage.getItem("idcategoria")}`);
@@ -64,6 +67,11 @@ const FormEditTienda = ({ idCategoria }) => {
       await axios.delete("/tienda/eliminar/" + idTienda);
       navigate(`/Tiendas/${localStorage.getItem("idcategoria")}`);
     }
+  };
+
+  const imgsave = (e) => {
+    setImg(e.target.files[0]);
+    console.log(e);
   };
 
   return (
@@ -161,14 +169,14 @@ const FormEditTienda = ({ idCategoria }) => {
               defaultValue={dataTienda.codigoPostal}
             />
           </label>
-          <label className="d-block my-2 w-100">
+          <label className="Colortext d-block my-2 w-100">
             <p>Subir imagen</p>
             <input
-              onChange={handle}
+              required={true}
+              onChange={imgsave}
               className="w-100"
-              type="text"
+              type="file"
               name="imagen"
-              defaultValue={dataTienda.imagen}
             />
           </label>
           <label className="d-block my-2 w-100">
